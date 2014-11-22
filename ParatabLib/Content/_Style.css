@@ -50,15 +50,11 @@ div#quicksearch{
 
 form.search-bar input{
     font-family:CalibriFont,Calibri;
+    font-size:0.75em
 }
 
 form.search-bar input[type="text"]{
     width:140px;
-    font-size:0.75em
-}
-
-form.search-bar input[type="submit"]{
-    font-size:0.75em 
 }
 
 div#content{

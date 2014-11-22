@@ -46,7 +46,7 @@ namespace ParatabLib.Controllers
                 return NotFound();
             name = System.Web.HttpUtility.UrlDecode(name);
             var target = from book in LibRepo.BookRepo.List()
-                          where book.BookName.Contains(name)
+                         where StringUtil.IsContains(book.BookName,name)
                           select new Book(){
                               BookID = book.BookID,
                               CallNumber = book.CallNumber,
@@ -229,7 +229,7 @@ namespace ParatabLib.Controllers
             if (target["Year"].ToString() == "")
             {
                 list = from book in LibRepo.BookRepo.List()
-                           where StringUtil.IsContains(book.Author,bookToFind.Author) && book.BookName.Contains(bookToFind.BookName) &&
+                       where StringUtil.IsContains(book.Author, bookToFind.Author) && StringUtil.IsContains(book.BookName,bookToFind.BookName) &&
                                  StringUtil.IsContains(book.Publisher, bookToFind.Publisher) && book.CallNumber.ToLower().Contains(bookToFind.CallNumber)
                            select new Book()
                            {
@@ -254,7 +254,7 @@ namespace ParatabLib.Controllers
                   
                 bookToFind.Year = int.Parse(target["Year"].ToString());
                 list = from book in LibRepo.BookRepo.List()
-                       where StringUtil.IsContains(book.Author, bookToFind.Author) && book.BookName.Contains(bookToFind.BookName) &&
+                       where StringUtil.IsContains(book.Author, bookToFind.Author) && StringUtil.IsContains(book.BookName,bookToFind.BookName) &&
                                  StringUtil.IsContains(book.Publisher, bookToFind.Publisher) && book.Year == bookToFind.Year
                                  && book.CallNumber.ToLower().Contains(bookToFind.CallNumber)
                        select new Book()

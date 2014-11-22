@@ -13,5 +13,11 @@ namespace ParatabLib.Models
         {
             return "Librarian "+this.UserName;
         }
+
+        public List<News> getAnnoucedNews()
+        {
+            ParatabLib.DataAccess.LibraryRepository libRepo = new ParatabLib.DataAccess.LibraryRepository();
+            return libRepo.NewsRepo.ListWhere(target => ParatabLib.Utilities.IntUtil.isEqual(target.AncID, UserID));
+        }
     }
 }

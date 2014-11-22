@@ -142,6 +142,15 @@ namespace ParatabLib.Controllers
                     TempData["ErrorNoti"] = "Can't delete the only one librarian remain out of system.";
                     return RedirectToAction("Index");
                 }
+                List<News> newslist = target.getAnnoucedNews();
+                if (newslist.Count != 0)
+                {
+                    foreach (News news in newslist)
+                    {
+                        news.AncID = null;
+                        libRepo.NewsRepo.Update(news);
+                    }
+                }
                     libRepo.LibrarianRepo.Remove(target);
                     libRepo.Save();
                     AuthenticateController.RemoveUser(target.UserName);

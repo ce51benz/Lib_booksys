@@ -12,7 +12,7 @@ namespace ParatabLib.Utilities
         {
             if (String.IsNullOrEmpty(str1))
                 return String.IsNullOrEmpty(str2);
-            return str1.Contains(str2);
+            return str1.ToLower().Contains(str2.ToLower());
         }
 
         /* This method is use to check that preferred string is all Ascii character

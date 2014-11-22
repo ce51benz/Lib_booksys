@@ -60,6 +60,8 @@ namespace ParatabLib.Controllers
             if (ModelState.IsValid)
             {
                 newsToAdd.PostTime = DateTime.Now;
+                Librarian libr = libRepo.LibrarianRepo.ListWhere(target => target.UserName == Session["LoginUser"].ToString().Substring(2)).Single();
+                newsToAdd.AncID = libr.UserID;
                 libRepo.NewsRepo.Add(newsToAdd);
                 libRepo.Save();
                 TempData["SuccessNoti"] = "Add news successfully.";

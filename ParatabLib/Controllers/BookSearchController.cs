@@ -60,7 +60,7 @@ namespace ParatabLib.Controllers
             }
             else if (searchType == "BookName")
             {
-                bookList = libRepo.BookRepo.ListWhere(target => target.BookName.Contains(keyword)).OrderBy(booksort => booksort.BookName).ToList();
+                bookList = libRepo.BookRepo.ListWhere(target => StringUtil.IsContains(target.BookName,keyword)).OrderBy(booksort => booksort.BookName).ToList();
             }
             else if (searchType == "Author")
             {
@@ -163,8 +163,8 @@ namespace ParatabLib.Controllers
                 bookToSearch.CallNumber = (bookToSearch.CallNumber == null) ? "" : bookToSearch.CallNumber.ToLower();
                 if (bookToSearch.Year != null)
                 {
-                    bookList = libRepo.BookRepo.ListWhere(target => (target.BookName.Contains(bookToSearch.BookName)) &&
-                        (target.CallNumber.ToLower().Contains(bookToSearch.CallNumber)) &&
+                    bookList = libRepo.BookRepo.ListWhere(target => (StringUtil.IsContains(target.BookName,bookToSearch.BookName)) &&
+                        (target.CallNumber.ToLower().Contains(bookToSearch.CallNumber.ToLower())) &&
                         (StringUtil.IsContains(target.Author, bookToSearch.Author)) &&
                        (StringUtil.IsContains(target.Publisher, bookToSearch.Publisher)) &&
                      (target.Year == bookToSearch.Year)).ToList();
@@ -172,8 +172,8 @@ namespace ParatabLib.Controllers
 
                 else
                 {
-                    bookList = libRepo.BookRepo.ListWhere(target => (target.BookName.Contains(bookToSearch.BookName)) &&
-                    (target.CallNumber.ToLower().Contains(bookToSearch.CallNumber)) &&
+                    bookList = libRepo.BookRepo.ListWhere(target => (StringUtil.IsContains(target.BookName,bookToSearch.BookName)) &&
+                    (target.CallNumber.ToLower().Contains(bookToSearch.CallNumber.ToLower())) &&
                     (StringUtil.IsContains(target.Author, bookToSearch.Author)) && 
                     (StringUtil.IsContains(target.Publisher, bookToSearch.Publisher))).ToList();
                 }
@@ -225,7 +225,7 @@ namespace ParatabLib.Controllers
             
             //Start timer
             Timer.Start();
-            List<Book> bookList = libRepo.BookRepo.ListWhere(target => target.BookName.Contains(bookName));
+            List<Book> bookList = libRepo.BookRepo.ListWhere(target => StringUtil.IsContains(target.BookName,bookName));
 
             //Stop timer
             Timer.Stop();

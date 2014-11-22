@@ -15,6 +15,11 @@
 
 <div class="news-area">
     @Html.Raw(@Model.Detail)
+    <p class="post-time"><b>ผู้ประกาศ:</b>@if(Model.AncID != null){
+    @Model.getAnnouncer().UserName
+    }
+    else{<text>Unknown</text>
+    }</p>
     <p class="post-time"><b>ประกาศเมื่อ:</b>@Model.PostTime</p>
 </div>
 
