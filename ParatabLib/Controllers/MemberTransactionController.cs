@@ -121,7 +121,7 @@ namespace ParatabLib.Controllers
                 return RedirectToAction("Index");
             }
 
-            if (renewentry.DueDate.Date < DateTime.Now.Date)
+            if (renewentry.IsOverDue())
             {
                 TempData["ErrorNoti"] = "Cannot renew this book due to borrow overdue.";
                 return RedirectToAction("Index");

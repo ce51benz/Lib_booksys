@@ -363,7 +363,7 @@ namespace LibraryTester
             ViewResult result = controller.QuickSearch("Fundamental", 1, 10) as ViewResult;
             Assert.IsNotNull(result.Model as PageList<Book>);
             Assert.AreEqual(1, (result.Model as PageList<Book>).GetPageSize());
-            Assert.AreEqual(2, (result.Model as PageList<Book>).GetList().Count);
+            Assert.AreEqual(3, (result.Model as PageList<Book>).GetList().Count);
             Assert.AreEqual("PHY-FL1-8830", (result.Model as PageList<Book>).GetList().
                 Where(target => target.BookName == "Fundamental statistics in psychology and education").SingleOrDefault().CallNumber);
         }

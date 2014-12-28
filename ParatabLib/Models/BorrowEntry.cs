@@ -37,6 +37,11 @@ namespace ParatabLib.Models
         [DefaultValue(0)]
         public short RenewCount { get { return _RenewCount; } set { _RenewCount = value; } }
 
+        public bool IsOverDue()
+        {
+            return DueDate.Date < DateTime.Now.Date;
+        }
+
         /* 4 below methods use to receive related borrowBook and borrower
          * via LibraryRepository object which can pass by reference or not pass parameter 
          * but instantiate in these method.

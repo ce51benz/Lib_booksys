@@ -11,7 +11,7 @@ using ParatabLib.ViewModels;
 namespace ParatabLib.Controllers
 {
     //This class use to handle about personnal account management
-    [RequireHttps]
+    //[RequireHttps]
     public class AccountController : Controller
     {
         LibraryRepository libRepo = new LibraryRepository();
@@ -32,7 +32,7 @@ namespace ParatabLib.Controllers
             if (CurrentLoginUser.Identify().StartsWith("Member"))
             {
                 List<BorrowEntry> checkList = libRepo.BorrowEntryRepo.ListWhere(entry => entry.UserID == CurrentLoginUser.UserID 
-                                                        && entry.ReturnDate == null && entry.DueDate.Date < DateTime.Now.Date);
+                                                        && entry.ReturnDate == null && entry.IsOverDue());
                 if (checkList.Count > 0)
                     TempData["WarnNoti"] = "You have overdue borrow please check your borrowlist";
             }

@@ -249,10 +249,6 @@ table.news-list{
     padding:5px;
     border:1px solid #808080;
     background-color:#FFFFC5;
-    border-top-left-radius:15px;
-    border-top-right-radius:15px;
-    border-bottom-left-radius:15px;
-    border-bottom-right-radius:15px;
 }
 
 
@@ -387,7 +383,6 @@ a.account-btt:hover{
     background-color:#6B8FB2
 }
 
-
 a.account-btt:visited{
     color:black;
     text-decoration:none;
@@ -519,8 +514,6 @@ table.list th,table.res-list th{
     border:1px solid #808080;
     padding:5px;
 }
-table.res-list th{
-}
 table.list td,table.res-list td{
     padding:5px;
     border:1px solid #808080;
@@ -606,7 +599,6 @@ img.back-to-top-btt{
 }
 
 footer{
-   
     height:25px;
     color:white;
     font-family:CalibriFont,Calibri;
@@ -717,7 +709,7 @@ div.contact-dev{
     font-size:x-large;
     margin-bottom:15px;
 }
-div.round-border{
+div.round-border,table.news-list{
     border-top-left-radius:15px;
     border-top-right-radius:15px;
     border-bottom-left-radius:15px;

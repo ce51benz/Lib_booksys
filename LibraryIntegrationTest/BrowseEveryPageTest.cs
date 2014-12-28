@@ -22,6 +22,7 @@ namespace LibraryIntegrationTest
         public static void InitApp(TestContext testContext)
         {
             app = new MvcWebApp();
+            app.Browser.Manage().Window.Maximize();
         }
 
         /* This method is test scenario for general user

@@ -158,7 +158,7 @@ namespace LibraryTester
             BookID = 1,
             UserID = 2,
             BorrowDate = new DateTime(2014,10,20,0,0,0),
-            DueDate = new DateTime(2014,11,21,0,0,0),
+            DueDate = new DateTime(2014,11,28,0,0,0),
             RenewCount = 0,
             ReturnDate = null
             },
@@ -185,7 +185,7 @@ namespace LibraryTester
             BookID = 3,
             UserID = 2,
             BorrowDate = new DateTime(2014,10,20,0,0,0),
-            DueDate = new DateTime(2014,11,21,0,0,0),
+            DueDate = new DateTime(2014,11,28,0,0,0),
             RenewCount = 0,
             ReturnDate = null
             },

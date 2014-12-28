@@ -16,6 +16,7 @@
     <textarea id="editor" class="ckeditor" name="Detail">
         @Html.DisplayFor(model => model.Detail)
     </textarea>
+    <input type="hidden" name="AncID" value="@Model.AncID" />
     @Html.HiddenFor(model => model.NewsID)
     @Html.HiddenFor(model => model.PostTime)
     <input type="submit" value="Edit news" />

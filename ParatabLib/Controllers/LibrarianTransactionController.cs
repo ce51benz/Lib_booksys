@@ -204,7 +204,7 @@ namespace ParatabLib.Controllers
                  * just calculate fine with number of day that passed
                  * in linear rate base on static fine configuration class.
                  */ 
-                if(returnentry.DueDate.Date < DateTime.Now.Date){
+                if(returnentry.IsOverDue()){
                     int dif = DateTime.Now.Subtract(returnentry.DueDate.Date).Days;
                     TempData["WarnNoti"] = "Return successfully.Fine " + (dif * ConfigurationController.getFine()) + " baht.";
                     }

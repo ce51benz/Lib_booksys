@@ -13,7 +13,7 @@ using ParatabLib.Utilities;
 namespace ParatabLib.Controllers
 {
     //This class use to handle about authorization/registration and account recovery
-    [RequireHttps]
+    //[RequireHttps]
     public class AuthenticateController : Controller
     {
         LibraryRepository libRepo = new LibraryRepository();
